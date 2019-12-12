@@ -11162,28 +11162,43 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     console.log("Link : ", link);
 
     var _withSWR = withSWR( // use the wrapper to wrap the *pagination API SWR*
-    Object(swr__WEBPACK_IMPORTED_MODULE_4__["default"])(link, _libs_fetch__WEBPACK_IMPORTED_MODULE_2__["default"])),
-        projects = _withSWR.data; // you can still use other SWRs outside
+    Object(swr__WEBPACK_IMPORTED_MODULE_4__["default"])(link, {
+      fetcher: _libs_fetch__WEBPACK_IMPORTED_MODULE_2__["default"],
+      refreshInterval: 0
+    })),
+        projects = _withSWR.data,
+        error = _withSWR.error; // you can still use other SWRs outside
 
 
-    if (!projects) {
+    if (error) {
       return __jsx("p", {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 29
         },
         __self: this
+      }, "No internet connection");
+    }
+
+    if (!projects) {
+      return __jsx("p", {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 32
+        },
+        __self: this
       }, "loading");
     }
 
-    console.log(projects);
     return projects.map(function (project, index) {
       return __jsx("div", {
         key: index + "_" + _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default()().toString,
-        style: {},
+        style: {
+          alignItems: "center"
+        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 34
+          lineNumber: 36
         },
         __self: this
       }, __jsx("img", {
@@ -11195,7 +11210,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 39
         },
         __self: this
       }), __jsx("p", {
@@ -11205,7 +11220,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 40
         },
         __self: this
       }, project.title));
@@ -11227,25 +11242,36 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
   return __jsx("div", {
     style: {
       paddingRight: 8,
-      paddingLeft: 8
+      paddingLeft: 8,
+      alignItems: "center",
+      textAlign: "center"
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58
+      lineNumber: 60
     },
     __self: this
-  }, __jsx("h1", {
+  }, __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 67
     },
     __self: this
   }, "Church App Pagination Tests"), pages, __jsx("button", {
     onClick: loadMore,
     disabled: isReachingEnd || isLoadingMore,
+    style: {
+      marginLeft: "auto",
+      marginRight: "auto",
+      width: 200,
+      height: 40,
+      backgroundColor: "#006d9c",
+      color: "white",
+      borderRadius5: "5"
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 70
     },
     __self: this
   }, isLoadingMore ? '. . .' : isReachingEnd ? 'You have reached the end' : 'Load more'));

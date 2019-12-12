@@ -2,7 +2,7 @@ import {useState} from 'react'
 import fetch from '../libs/fetch'
 import Link from 'next/link'
 
-import useSWR, { useSWRPages } from 'swr'
+import useSWR, { useSWRPages,SWRConfig } from 'swr'
 
 export default () => {
   const [pageIn,setPageIn]=useState(2)
@@ -19,20 +19,22 @@ export default () => {
     ({ offset, withSWR }) => {
       const link='https://us-east-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/the-ocean-app-ycpma/service/API/incoming_webhook/getNewsFeedsInPages?page=' + (offset || 1);
       console.log("Link : ",link )
-      const { data: projects } = withSWR(
+      const { data: projects,error } = withSWR(
         // use the wrapper to wrap the *pagination API SWR*
-        useSWR(link, fetch)
+        useSWR(link, { fetcher:fetch,refreshInterval: 0 })
       )
       // you can still use other SWRs outside
-
+      
+      if(error){
+        return <p>No internet connection</p>
+      }
       if (!projects) {
         return <p>loading</p>
       }
 
-      console.log(projects)
       return projects.map((project,index) => 
         <div key={index+"_"+(Date.now().toString)} style={{
-  
+           alignItems: "center",
         }}>
           <img src={project.image} alt="Image" style={{width:"100%",sheight:"auto"}}/>
           <p key={project.id} style={{fontSize:18}}>{project.title}</p>
@@ -57,11 +59,27 @@ export default () => {
   
   return <div style={{
           paddingRight:8,
-          paddingLeft:8
+          paddingLeft:8,
+          alignItems: "center",
+          textAlign:"center"
          }}>
-    <h1>Church App Pagination Tests</h1>
-    {pages}
-    <button onClick={loadMore} disabled={isReachingEnd || isLoadingMore}>
+
+    <h2>Church App Pagination Tests</h2>
+
+     {pages}
+    <button onClick={loadMore} disabled={isReachingEnd || isLoadingMore}
+      style={
+        {
+          marginLeft:"auto",
+          marginRight:"auto",
+          width:200,
+          height:40,
+          backgroundColor:"#006d9c",
+          color:"white",
+          borderRadius5:"5"
+        }
+      }
+    >
       {isLoadingMore ? '. . .' : isReachingEnd ? 'You have reached the end' : 'Load more'}
     </button>
     
