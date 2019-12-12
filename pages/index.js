@@ -29,7 +29,7 @@ export default () => {
         return <p>loading</p>
       }
 
-      
+      console.log(projects)
       return projects.map((project,index) => 
         <div key={index+"_"+(Date.now().toString)} style={{
   
@@ -56,9 +56,9 @@ export default () => {
   )
   
   return <div style={{
-        paddingRight:8,
-        paddingLeft:8
-  }}>
+          paddingRight:8,
+          paddingLeft:8
+         }}>
     <h1>Church App Pagination Tests</h1>
     {pages}
     <button onClick={loadMore} disabled={isReachingEnd || isLoadingMore}>

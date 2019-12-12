@@ -11176,6 +11176,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
       }, "loading");
     }
 
+    console.log(projects);
     return projects.map(function (project, index) {
       return __jsx("div", {
         key: index + "_" + _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default()().toString,
