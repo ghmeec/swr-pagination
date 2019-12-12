@@ -26,6 +26,7 @@ export default () => {
       // you can still use other SWRs outside
       
       if(error){
+        console.log(error)
         return <p>No internet connection</p>
       }
       if (!projects) {

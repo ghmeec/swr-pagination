@@ -11170,10 +11170,11 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
     if (error) {
+      console.log(error);
       return __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 30
         },
         __self: this
       }, "No internet connection");
@@ -11183,7 +11184,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
       return __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 32
+          lineNumber: 33
         },
         __self: this
       }, "loading");
@@ -11197,7 +11198,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 37
+          lineNumber: 38
         },
         __self: this
       }, __jsx("img", {
@@ -11209,7 +11210,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 41
         },
         __self: this
       }), __jsx("p", {
@@ -11219,7 +11220,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 42
         },
         __self: this
       }, project.title));
@@ -11247,13 +11248,13 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 61
+      lineNumber: 62
     },
     __self: this
   }, __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68
+      lineNumber: 69
     },
     __self: this
   }, "Church App Pagination Tests"), pages, __jsx("button", {
@@ -11270,7 +11271,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71
+      lineNumber: 72
     },
     __self: this
   }, isLoadingMore ? '. . .' : isReachingEnd ? 'You have reached the end' : 'Load more'));
