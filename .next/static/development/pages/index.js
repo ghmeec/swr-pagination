@@ -9461,7 +9461,7 @@ if (typeof window !== 'undefined' && window.addEventListener && !eventsBinded) {
 /*!***************************************!*\
   !*** ./node_modules/swr/esm/index.js ***!
   \***************************************/
-/*! exports provided: trigger, mutate, SWRConfig, useSWRPages, default */
+/*! exports provided: useSWRPages, default, trigger, mutate, SWRConfig */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11161,10 +11161,8 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     var link = 'https://us-east-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/the-ocean-app-ycpma/service/API/incoming_webhook/getNewsFeedsInPages?page=' + (offset || 1);
 
     var _withSWR = withSWR( // use the wrapper to wrap the *pagination API SWR*
-    Object(swr__WEBPACK_IMPORTED_MODULE_4__["default"])(link, {
-      fetcher: _libs_fetch__WEBPACK_IMPORTED_MODULE_2__["default"],
-      refreshInterval: 0
-    })),
+    // useSWR(link, { fetcher:fetch,refreshInterval: 0 })
+    Object(swr__WEBPACK_IMPORTED_MODULE_4__["default"])(link, _libs_fetch__WEBPACK_IMPORTED_MODULE_2__["default"])),
         projects = _withSWR.data,
         error = _withSWR.error; // you can still use other SWRs outside
 
@@ -11174,7 +11172,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
       return __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 31
         },
         __self: this
       }, "No internet connection");
@@ -11184,7 +11182,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
       return __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 34
         },
         __self: this
       }, "loading");
@@ -11198,7 +11196,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 39
         },
         __self: this
       }, __jsx("img", {
@@ -11210,7 +11208,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 42
         },
         __self: this
       }), __jsx("p", {
@@ -11220,7 +11218,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 43
         },
         __self: this
       }, project.title));
@@ -11248,13 +11246,13 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 63
     },
     __self: this
   }, __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69
+      lineNumber: 70
     },
     __self: this
   }, "Church App Pagination Tests"), pages, __jsx("button", {
@@ -11271,7 +11269,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72
+      lineNumber: 73
     },
     __self: this
   }, isLoadingMore ? '. . .' : isReachingEnd ? 'You have reached the end' : 'Load more'));

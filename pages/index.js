@@ -21,7 +21,8 @@ export default () => {
       
       const { data: projects,error } = withSWR(
         // use the wrapper to wrap the *pagination API SWR*
-        useSWR(link, { fetcher:fetch,refreshInterval: 0 })
+        // useSWR(link, { fetcher:fetch,refreshInterval: 0 })
+        useSWR(link, fetch)
       )
       // you can still use other SWRs outside
       

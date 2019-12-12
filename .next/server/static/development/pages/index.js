@@ -1858,17 +1858,15 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
       data: projects,
       error
     } = withSWR( // use the wrapper to wrap the *pagination API SWR*
-    swr__WEBPACK_IMPORTED_MODULE_4___default()(link, {
-      fetcher: _libs_fetch__WEBPACK_IMPORTED_MODULE_2__["default"],
-      refreshInterval: 0
-    })); // you can still use other SWRs outside
+    // useSWR(link, { fetcher:fetch,refreshInterval: 0 })
+    swr__WEBPACK_IMPORTED_MODULE_4___default()(link, _libs_fetch__WEBPACK_IMPORTED_MODULE_2__["default"])); // you can still use other SWRs outside
 
     if (error) {
       console.log(error);
       return __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 31
         },
         __self: undefined
       }, "No internet connection");
@@ -1878,7 +1876,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
       return __jsx("p", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 33
+          lineNumber: 34
         },
         __self: undefined
       }, "loading");
@@ -1891,7 +1889,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 39
       },
       __self: undefined
     }, __jsx("img", {
@@ -1903,7 +1901,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 42
       },
       __self: undefined
     }), __jsx("p", {
@@ -1913,7 +1911,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 43
       },
       __self: undefined
     }, project.title)));
@@ -1936,13 +1934,13 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 62
+      lineNumber: 63
     },
     __self: undefined
   }, __jsx("h2", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69
+      lineNumber: 70
     },
     __self: undefined
   }, "Church App Pagination Tests"), pages, __jsx("button", {
@@ -1959,7 +1957,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72
+      lineNumber: 73
     },
     __self: undefined
   }, isLoadingMore ? '. . .' : isReachingEnd ? 'You have reached the end' : 'Load more'));
