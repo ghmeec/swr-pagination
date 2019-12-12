@@ -1872,6 +1872,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
     return projects.map((project, index) => __jsx("div", {
       key: index + "_" + _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default()().toString,
+      style: {},
       __source: {
         fileName: _jsxFileName,
         lineNumber: 34
@@ -1881,12 +1882,12 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
       src: project.image,
       alt: "Image",
       style: {
-        width: 200,
-        height: "auto"
+        width: "100%",
+        sheight: "auto"
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 35
+        lineNumber: 37
       },
       __self: undefined
     }), __jsx("p", {
@@ -1896,7 +1897,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
       },
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 36
+        lineNumber: 38
       },
       __self: undefined
     }, project.title)));
@@ -1905,20 +1906,25 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     data: projects
   }) => {
     setPageIn(pageIn + 1);
-    const page = pageIn;
+    const page = pageIn; // return the last element id here
+
     return projects && projects.length ? page : null;
   }, // deps of the page component
   []);
   return __jsx("div", {
+    style: {
+      paddingRight: 8,
+      paddingLeft: 8
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 58
     },
     __self: undefined
   }, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 62
     },
     __self: undefined
   }, "Church App Pagination Tests"), pages, __jsx("button", {
@@ -1926,7 +1932,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     disabled: isReachingEnd || isLoadingMore,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
+      lineNumber: 64
     },
     __self: undefined
   }, isLoadingMore ? '. . .' : isReachingEnd ? 'You have reached the end' : 'Load more'));

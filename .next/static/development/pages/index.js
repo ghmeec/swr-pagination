@@ -9461,7 +9461,7 @@ if (typeof window !== 'undefined' && window.addEventListener && !eventsBinded) {
 /*!***************************************!*\
   !*** ./node_modules/swr/esm/index.js ***!
   \***************************************/
-/*! exports provided: useSWRPages, default, trigger, mutate, SWRConfig */
+/*! exports provided: trigger, mutate, SWRConfig, useSWRPages, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -11179,6 +11179,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     return projects.map(function (project, index) {
       return __jsx("div", {
         key: index + "_" + _babel_runtime_corejs2_core_js_date_now__WEBPACK_IMPORTED_MODULE_0___default()().toString,
+        style: {},
         __source: {
           fileName: _jsxFileName,
           lineNumber: 34
@@ -11188,12 +11189,12 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
         src: project.image,
         alt: "Image",
         style: {
-          width: 200,
-          height: "auto"
+          width: "100%",
+          sheight: "auto"
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 35
+          lineNumber: 37
         },
         __self: this
       }), __jsx("p", {
@@ -11203,7 +11204,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 36
+          lineNumber: 38
         },
         __self: this
       }, project.title));
@@ -11212,7 +11213,8 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
   function (_ref2) {
     var projects = _ref2.data;
     setPageIn(pageIn + 1);
-    var page = pageIn;
+    var page = pageIn; // return the last element id here
+
     return projects && projects.length ? page : null;
   }, // deps of the page component
   []),
@@ -11222,15 +11224,19 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
       loadMore = _useSWRPages.loadMore;
 
   return __jsx("div", {
+    style: {
+      paddingRight: 8,
+      paddingLeft: 8
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 58
     },
     __self: this
   }, __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 62
     },
     __self: this
   }, "Church App Pagination Tests"), pages, __jsx("button", {
@@ -11238,7 +11244,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     disabled: isReachingEnd || isLoadingMore,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
+      lineNumber: 64
     },
     __self: this
   }, isLoadingMore ? '. . .' : isReachingEnd ? 'You have reached the end' : 'Load more'));

@@ -31,8 +31,10 @@ export default () => {
 
       
       return projects.map((project,index) => 
-        <div key={index+"_"+(Date.now().toString)}>
-          <img src={project.image} alt="Image" style={{width:200,height:"auto"}}/>
+        <div key={index+"_"+(Date.now().toString)} style={{
+  
+        }}>
+          <img src={project.image} alt="Image" style={{width:"100%",sheight:"auto"}}/>
           <p key={project.id} style={{fontSize:18}}>{project.title}</p>
         </div>
       )
@@ -42,6 +44,8 @@ export default () => {
     ({ data: projects }) => {
       setPageIn(pageIn+1)
       const page=pageIn
+
+      // return the last element id here
       return projects && projects.length
         ? page
         : null
@@ -51,7 +55,10 @@ export default () => {
     []
   )
   
-  return <div>
+  return <div style={{
+        paddingRight:8,
+        paddingLeft:8
+  }}>
     <h1>Church App Pagination Tests</h1>
     {pages}
     <button onClick={loadMore} disabled={isReachingEnd || isLoadingMore}>
