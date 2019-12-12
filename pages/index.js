@@ -18,7 +18,7 @@ export default () => {
     // page component
     ({ offset, withSWR }) => {
       const link='https://us-east-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/the-ocean-app-ycpma/service/API/incoming_webhook/getNewsFeedsInPages?page=' + (offset || 1);
-      console.log("Link : ",link )
+      
       const { data: projects,error } = withSWR(
         // use the wrapper to wrap the *pagination API SWR*
         useSWR(link, { fetcher:fetch,refreshInterval: 0 })
@@ -32,6 +32,7 @@ export default () => {
         return <p>loading</p>
       }
 
+      
       return projects.map((project,index) => 
         <div key={index+"_"+(Date.now().toString)} style={{
            alignItems: "center",
